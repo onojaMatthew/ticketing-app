@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
-const { current_user } = require("@onojanpmorg/common") ;
-const { requireAuth } = require("@onojanpmorg/common");
+const { current_user, requireAuth } = require("@onojanpmorg/common");
 
 const router = express.Router();
 interface UserPayload {
