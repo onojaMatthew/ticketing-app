@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-const { BadRequestError } = require("@onojanpmorg/common");
+import { BadRequestError } from "../errors/bad-request-error";
 import { User } from "../models/user";
 import { Password } from "../services/password";
 import { signin_validator } from "../validator";
