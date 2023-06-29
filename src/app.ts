@@ -1,12 +1,9 @@
 import express from "express";
 import cookieSession from "cookie-session";
 import "express-async-errors";
-import cors from "cors";
-import mongoose from "mongoose";
 import { json } from "body-parser";
 import { routes } from "./routes/index";
-import { errorHandler } from "@onojanpmorg/common";
-import { NotFoundError } from "@onojanpmorg/common";
+import { errorHandler, NotFoundError } from "@onojanpmorg/common";
 
 const app = express();
 

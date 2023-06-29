@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-const { current_user, requireAuth } = require("@onojanpmorg/common");
+import { current_user } from "@onojanpmorg/common";
 
 const router = express.Router();
 interface UserPayload {
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-router.get("/currentuser", current_user, requireAuth, async (req: Request, res: Response) => {
+router.get("/currentuser", current_user, async (req: Request, res: Response) => {
   res.send({ currentUser: req.currentUser || null });
 })
 
