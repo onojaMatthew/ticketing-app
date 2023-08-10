@@ -1,8 +1,17 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
+import jwt from "jsonwebtoken"
 import { app } from "../app";
 import mongoose from "mongoose";
 
 let mongo: any;
+
+declare global {
+  namespace NodeJS {
+    interface Global {
+      signin(): string[];
+    }
+  }
+}
 
 beforeAll(async() => {
   process.env.JWT_KEY = "SOMEowndjssfrwi";
@@ -22,3 +31,19 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 })
+
+export const signin = () => {
+  const payload = {
+    id: "dlsidiroandsfag",
+    email: "email@domain.com"
+  }
+
+  const token = jwt.sign(payload, process.env.JWT_KEY!);
+
+  const session = { jwt: token };
+
+  const sessionJSON = JSON.stringify(session);
+
+  const base64 = Buffer.from(sessionJSON).toString("base64");
+  return [`express:sess=${base64}`];
+}

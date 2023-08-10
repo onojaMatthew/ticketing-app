@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
-import { currentUser } from "../middlewares/current-user";
-import { requireAuth } from "../middlewares/require-auth";
+import { current_user, requireAuth } from "@onojanpmorg/common";
+// import { currentUser } from "../middlewares/current-user";
+// import { requireAuth } from "../middlewares/require-auth";
 
 const router = express.Router();
 interface UserPayload {
@@ -16,7 +17,7 @@ declare global {
   }
 }
 
-router.get("/currentuser", currentUser, requireAuth, async (req: Request, res: Response) => {
+router.get("/currentuser", current_user, requireAuth, async (req: Request, res: Response) => {
   res.send({ currentUser: req.currentUser || null });
 })
 

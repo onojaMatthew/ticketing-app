@@ -4,8 +4,9 @@ import "express-async-errors";
 import cors from "cors"
 import { json } from "body-parser";
 import { routes } from "./routes/index";
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors/not-found-error";
+import { errorHandler, NotFoundError } from "@onojanpmorg/common";
+// import { errorHandler } from "./middlewares/error-handler";
+// import { NotFoundError } from "./errors/not-found-error";
 
 const app = express();
 

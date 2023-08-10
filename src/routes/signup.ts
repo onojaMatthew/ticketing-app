@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { BadRequestError } from "../errors/bad-request-error";
+import { BadRequestError } from "@onojanpmorg/common";
 import { User } from "../models/user";
 import { signup_validator } from "../validator";
 

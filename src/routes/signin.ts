@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { BadRequestError } from "../errors/bad-request-error";
+import { BadRequestError } from "@onojanpmorg/common";
 import { User } from "../models/user";
 import { Password } from "../services/password";
 import { signin_validator } from "../validator";
